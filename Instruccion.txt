@@ -1,0 +1,13 @@
+Se debe hacer una pagina que quede igual a la que se puede ver en la imagen muestra.png, la pagina debe estar hecha en angular 10, puede ayudarse de boostrap, primeng o angular material
+
+la pagina muestra varias cartas de productos, cada carta muestra el stock del producto, una imagen del producto, el nombre del producto su precio y un icono para seleccionarlo.
+usted decide como implementa la logica para "generar" los productos, el numero de stock, el nombre del producto y el precio no son importantes, lo importante es que sean mostrados en 
+pantalla tal y como se muestra en la imagen.
+Si se selecciona un producto, el icono de seleccion debe pintarse completamente de naranja, si se selecciona el checkbox de seleccionar todos, se deben de seleccionar todos los productos.
+
+si ningun producto esta seleccionado los iconos de la derecha de la pantalla deben aparecer de color gris y no hacen nada, en caso de que algun producto este seleccionado pasan a ser de
+color azul, si se le da click al icono de modificar stock, se debe abrir una ventana emergente sencilla que permita insertar un numero, luego el stock los productos seleccionados deben 
+cambiar al numero seleccionado, si se da click al icono pausar las cartas y su contenido deben pasar a verse un poco transparentes (opacity: 0.5), si se da click al icono de activar, los 
+productos pausados deben pasar a vercen normales, por ultimo si se da click al icono de eliminar se deben eliminar todos los productos seleccionados 
+
+en la carpeta assets hay varias imagenes que le podrian servir.
