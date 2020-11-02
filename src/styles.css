@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url(./assets/img/background.png);
+}
+
+.form-control {
+    border: 1px solid white;
+    outline: none;
+}
+
+.center {
+    position: relative;
+    left: 50%;
+    transform: translatex(-50%);
+}
