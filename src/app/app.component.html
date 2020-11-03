@@ -4,64 +4,60 @@
             <form class="form-inline focus-disable">
                 <img src="../assets/img/Search.svg " width="30 " height="30 " class="d-inline-block align-top ml-3 mr-3" loading="lazy ">
                 <input class="form-control" style="width: 500px;">
-                <img src="../assets/img/Options.svg " width="30 " height="30 " class="d-inline-block align-top mr-3 ml-3 " alt=" " loading="lazy ">
+                <img src="../assets/img/Options.svg " width="30 " height="30 " class="d-inline-block align-top mr-3 ml-3 " alt="Options" loading="lazy ">
             </form>
         </div>
     </div>
 
     <div class="row mt-5">
         <div class="col">
-            <div class="float-right mr-3">
-                <input class="" type="checkbox"><a href="#"> Seleccionar todo</a>
+            <div class="float-right mr-5">
+                <input type="checkbox" id="cb1" ng-model="check" ng-change="checkAll(check)" ng-true-value="YES" ng-false-value="NO" /> Citizen
+                <a class="text-primary"> Seleccionar todo</a>
             </div>
         </div>
     </div>
 
-    <div class="container mt-2">
+    <div class="container">
         <div class="row">
 
             <div class="col-3 text-center">
                 <div class="btn-group-vertical">
                     <hr width="200px">
-                    <img src="../assets/img/ModifivadorStockOff.svg" width="70" height="70" class="center mt-4">
+                    <img *ngIf="botonesActivados === false" src="../assets/img/ModifivadorStockOff.svg" width="70" height="70" class="center mt-5">
+                    <img *ngIf="botonesActivados === true" src="../assets/img/ModificadorStockOn.svg" width="70" height="70" class="btn center mt-5">
                     <h2 class="center text-primary">Modificador stock</h2>
-                    <img src="../assets/img/PlayOff.svg" width="70" height="70" class="center mt-4">
+                    <img *ngIf="botonesActivados === false" src="../assets/img/PlayOff.svg" width="70" height="70" class="center mt-5">
+                    <img *ngIf="botonesActivados === true" src="../assets/img/PlayOn.svg" width="70" height="70" class="btn center mt-5">
                     <h2 class="center text-primary">Activar</h2>
-                    <img src="../assets/img/PauseOff.svg" width="70" height="70" class="center mt-4">
+                    <img *ngIf="botonesActivados === false" src="../assets/img/PauseOff.svg" width="70" height="70" class="center mt-5">
+                    <img *ngIf="botonesActivados === true" src="../assets/img/PauseOn.svg" width="70" height="70" class="btn center mt-5">
                     <h2 class="center text-primary">Pausar</h2>
-                    <img src="../assets/img/Remove.svg" width="70" height="70" class="center mt-4">
+                    <img *ngIf="botonesActivados === false" src="../assets/img/Remove.svg" width="70" height="70" class="center mt-5">
+                    <img *ngIf="botonesActivados === true" src="../assets/img/RemoveOn.svg" width="70" height="70" class="btn center mt-5" (click)="eliminarTodo()">
                     <h2 class="center text-primary ">Eliminar</h2>
+                    <hr width="200px">
                 </div>
             </div>
 
             <div class="col-9">
                 <hr width="750px mt-3">
                 <div class="row">
-                    <div class="card m-2" style="width: 16rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                    <div class="card m-2" style="width: 16rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                    <div class="card m-2" style="width: 16rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                    <div class="card m-2 rounder" *ngFor="let product of products" style="width: 16rem;">
+                        <div class="card-body" (click)="TarjetaAdicionarEliminar(product)">
+                            <h5 class="card-title float-right text-primary">Stock: {{product.stock}}</h5>
+                            <img [src]="product.img" class="card-img-top" [alt]="product.name">
+                            <hr width="200px mt-3">
+                            <div class="container row">
+                                <div class="col-10 text-center">
+                                    <h4 class="text-primary ml-5">{{product.name}}</h4>
+                                    <h5 class="text-primary ml-5">${{product.price | number}}</h5>
+                                </div>
+                                <div class="col-2 align-self-end">
+                                    <img *ngIf="product.circle === false" src="../assets/img/Selectoff.svg" width="25" height="25">
+                                    <img *ngIf="product.circle === true" src="../assets/img/SelectOn.svg" width="25" height="25">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
